@@ -1,0 +1,107 @@
+@font-face {
+	font-family: "Mistle";
+	src: url("./fonts/mistle-bold.otf") format("opentype");
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: "Mistle";
+	src: url("./fonts/mistle-italic.otf") format("opentype");
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Mistle";
+	src: url("./fonts/mistle-outline.otf") format("opentype");
+	font-weight: 400;
+	font-style: normal;
+}
+
+:root {
+	touch-action: pan-x pan-y;
+	height: 100%;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+}
+
+html,
+body,
+.mantine-Container-root,
+.bg-light-blue {
+	background: #e9f3ff;
+}
+a {
+	text-decoration: none;
+}
+.mantine-Carousel-controls {
+	bottom: 0 !important;
+	top: auto !important;
+	justify-content: center !important;
+	gap: 12px !important;
+}
+.mantine-Carousel-controls button {
+	background-color: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+.zoom-container {
+	overflow: hidden;
+	position: relative;
+	border-radius: 20px;
+	background-color: #d7eaff;
+	height: 270px;
+	cursor: pointer;
+}
+
+.zoom-image {
+	transition: transform 0.5s ease;
+	object-fit: contain;
+	height: 100%;
+	width: 100%;
+}
+
+.zoom-container:hover .zoom-image {
+	transform: scale(1.1);
+}
+
+.mantine-Checkbox-input {
+	background-color: transparent !important;
+}
+.mantine-TextInput-input,
+.mantine-Select-input {
+	background-color: transparent !important;
+	outline: 1px solid #0d1759;
+}
+@keyframes colorAnimation {
+	0% {
+		background-color: #e9f3ff;
+	}
+	50% {
+		background-color: #d8eaff;
+	}
+	100% {
+		background-color: #e9f3ff;
+	}
+}
+
+@keyframes innerColorAnimation {
+	0% {
+		background-color: #d8eaff;
+	}
+	50% {
+		background-color: #0d1759;
+	}
+	100% {
+		background-color: #d8eaff;
+	}
+}
+
+.mantine-Skeleton-root::after {
+	background-color: #d7eaff !important;
+}
