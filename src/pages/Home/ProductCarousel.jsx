@@ -68,7 +68,7 @@ const ProductCarousel = () => {
                                 <Grid gutter="md" align="center">
 
                                     <Grid.Col span={10}>
-                                        <Container h={500} bg={'red'} style={{ borderRadius: '10px' }}>
+                                        <Container h={500} bg={'#d8eaff'} style={{ borderRadius: '10px' }}>
                                             <Image src={product.image} alt={product.title} radius="md" w={'100%'} h={'100%'} style={{ objectFit: 'contain' }} />
                                         </Container>
                                     </Grid.Col>
