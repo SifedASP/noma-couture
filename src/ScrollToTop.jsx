@@ -1,3 +1,4 @@
+import { Container } from "@mantine/core";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -12,7 +13,7 @@ const ScrollToTop = (props) => {
     }, [pathname]);
 
     /* eslint-disable-next-line react/prop-types */
-    return <>{props.children}</>;
+    return <Container fluid m={0} p={0}>{props.children}</Container>;
 };
 
 export default ScrollToTop;

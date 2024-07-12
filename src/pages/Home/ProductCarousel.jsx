@@ -47,7 +47,7 @@ const ProductCarousel = () => {
     };
 
     return (
-        <Container mt="70px" mb="xl" pb={20}>
+        <Container mt="70px" mb="xl" pb={20} maw={'1180px'}>
             <Carousel
                 ref={carouselRef}
                 slideSize="100%"
@@ -68,7 +68,7 @@ const ProductCarousel = () => {
                                 <Grid gutter="md" align="center">
 
                                     <Grid.Col span={10}>
-                                        <Container h={'360px'} bg={'#d8eaff'} style={{ borderRadius: '10px' }}>
+                                        <Container h={500} bg={'red'} style={{ borderRadius: '10px' }}>
                                             <Image src={product.image} alt={product.title} radius="md" w={'100%'} h={'100%'} style={{ objectFit: 'contain' }} />
                                         </Container>
                                     </Grid.Col>
@@ -133,7 +133,7 @@ const ProductCarousel = () => {
                             ) :
                                 (
                                     <Grid gutter="md" align="center">
-                                        <Grid.Col span={6}>
+                                        <Grid.Col span={7}>
                                             <Stack spacing="xs">
                                                 <Title order={3} size="25px" lts={2} mt="md" style={{ color: '#0D1759' }}>
                                                     {product.title}
@@ -190,7 +190,7 @@ const ProductCarousel = () => {
                                             </Title>
                                         </Grid.Col>
 
-                                        <Grid.Col span={5}>
+                                        <Grid.Col span={4}>
                                             <Container h={'360px'} bg={'#d8eaff'} style={{ borderRadius: '10px' }}>
                                                 <Image src={product.image} alt={product.title} radius="md" w={'100%'} h={'100%'} style={{ objectFit: 'contain' }} />
                                             </Container>

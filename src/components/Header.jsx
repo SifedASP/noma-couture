@@ -16,7 +16,7 @@ const CustomHeader = () => {
     return (
         <div className='bg-light-blue'>
             <div style={{ borderBottom: `1px solid #0D1759`, padding: '15px 0' }}>
-                <Container style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Container style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} maw={'1180px'}>
                     <Group>
                         <ActionIcon variant='transparent' c={'#1E1E1ECC'}>
                             <IconUserCircle size={24} />

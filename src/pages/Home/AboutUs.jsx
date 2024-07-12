@@ -18,7 +18,7 @@ const AboutUs = () => {
     const smallScreen = useMediaQuery('(max-width: 768px)');
 
     return (
-        <Container mt={"70px"} mb={"xl"} id='about'>
+        <Container mt={"70px"} mb={"xl"} id='about' maw={'1180px'}>
             <Grid gutter="md" align="center">
                 <Grid.Col span={smallScreen ? 12 : 6}>
                     <Text size="lg" weight={500} style={{ color: '#0D1759' }}>

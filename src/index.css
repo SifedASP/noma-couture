@@ -24,10 +24,17 @@
 
 html {
 	scroll-behavior: smooth;
+	box-sizing: border-box;
 }
 
 body {
 	margin: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
 html,
@@ -55,15 +62,16 @@ a {
 	position: relative;
 	border-radius: 20px;
 	background-color: #d7eaff;
-	height: 270px;
+	height: 230px;
 	cursor: pointer;
 }
 
 .zoom-image {
 	transition: transform 0.5s ease;
-	object-fit: contain;
 	height: 100%;
 	width: 100%;
+	border-radius: 25px;
+	object-fit: contain;
 }
 
 .zoom-container:hover .zoom-image {
@@ -78,6 +86,11 @@ a {
 	background-color: transparent !important;
 	outline: 1px solid #0d1759;
 }
+.counter .m_7485cace {
+	margin-inline: 0px !important;
+	width: fit-content;
+}
+
 @keyframes colorAnimation {
 	0% {
 		background-color: #e9f3ff;
@@ -104,4 +117,19 @@ a {
 
 .mantine-Skeleton-root::after {
 	background-color: #d7eaff !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #0d1759;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #fff;
 }

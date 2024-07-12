@@ -1,7 +1,7 @@
 import { useCart } from 'react-use-cart';
-import { Container, Title, Text, Button, Flex, ThemeIcon, Center, SimpleGrid, Paper, Card, ScrollArea } from '@mantine/core';
+import { Container, Title, Text, Button, Flex, ThemeIcon, Center, SimpleGrid, Paper, Card, ScrollArea, Group } from '@mantine/core';
 import { Link } from 'react-router-dom';
-import { IconTrash } from '@tabler/icons-react';
+import { IconChevronRight, IconTrash } from '@tabler/icons-react';
 import CartItem from '../components/CartItem';
 import { useMediaQuery } from '@mantine/hooks';
 import { useState } from 'react';
@@ -33,20 +33,18 @@ const Cart = () => {
 
     if (isEmpty) {
         return (
-            <Empty title="Your cart is empty" button={true} />
+            <Empty title="Your cart is empty" button={'yes'} />
         )
     }
 
     return (
         <Container fluid>
-            <Container fluid w={smallScreen ? '100%' : '90%'} >
+            <Container maw={'1180px'} >
                 <Flex py="md" style={{ textWrap: 'wrap', textAlign: smallScreen ? 'center' : 'left' }} >
-                    <Text size='xs'>Home
-                        <ThemeIcon size='xs' variant='subtle' px={20}>&gt;</ThemeIcon> <span>Shop</span>
-                        <ThemeIcon size='xs' variant='subtle' px={20}>&gt;</ThemeIcon> <span style={{ fontWeight: 'bold' }}>
-                            Shopping Cart
-                        </span>
-                    </Text>
+                <Group size='xs'><Text size='xs' c={'dimmed'}>Home</Text>
+                        <ThemeIcon size='13px' variant='subtle'><IconChevronRight /></ThemeIcon> <Text c={'dimmed'} size='xs'>Shop</Text>
+                        <ThemeIcon size='13px' variant='subtle'><IconChevronRight /></ThemeIcon> <Text c={'dimmed'} size='xs'>Shopping Cart</Text>
+                    </Group>
 
                 </Flex>
 

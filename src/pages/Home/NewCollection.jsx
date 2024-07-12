@@ -18,7 +18,7 @@ const NewCollection = () => {
     const smallScreen = useMediaQuery('(max-width: 768px)');
 
     return (
-        <Container mt="70px" mb="xl">
+        <Container mt="70px" mb="xl" maw={'1180px'}>
             <Stack align={smallScreen ? 'left' : 'center'}>
                 <Title order={1} style={{ color: '#0D1759' }} ml={!smallScreen ? '0' : '2%'} lts={2} mr={smallScreen ? '0' : '-20%'}>
                     Brand New

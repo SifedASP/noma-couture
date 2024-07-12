@@ -1,14 +1,16 @@
 import { useCart } from 'react-use-cart';
-import { Container, Title, Text, Button, Flex, ThemeIcon, Center, SimpleGrid, Paper, Card, ScrollArea } from '@mantine/core';
+import { Container, Title, Text, Button, Flex, ThemeIcon, Center, SimpleGrid, Paper, Card, ScrollArea, Group, Textarea } from '@mantine/core';
 import CartItem from '../components/CartItem';
 import { useMediaQuery } from '@mantine/hooks';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CheckoutStepper from '../components/CheckoutStepper';
 import BillingDetailsForm from '../components/BillingDetailsForm';
 import { useForm } from '@mantine/form';
 import Empty from '../components/Empty';
 import PaymentForm from '../components/PaymentForm';
 import PaymentConfirmation from '../components/PaymentConfirmation';
+import { IconChevronRight } from '@tabler/icons-react';
+import { Link } from 'react-router-dom';
 
 const shippingCost = [
     {
@@ -33,7 +35,7 @@ const Checkout = () => {
 
     /* eslint-disable-next-line no-unused-vars */
     const [selectedShipping, setSelectedShipping] = useState(1);
-    const [activeStep, setActiveStep] = useState(0);
+    const [activeStep, setActiveStep] = useState(1);
     const [loading, setLoading] = useState(false);
 
     const smallScreen = useMediaQuery('(max-width: 768px)');
@@ -62,7 +64,7 @@ const Checkout = () => {
     const nextStep = () =>
         setActiveStep((current) => {
 
-            return current < 3 ? current + 1 : current;
+            return current < 3 || current > 0 ? current + 1 : current;
         });
 
     // const prevStep = () => setActiveStep((current) => (current > 0 ? current - 1 : current));
@@ -77,24 +79,26 @@ const Checkout = () => {
 
     }
 
+    useEffect(() => {
+        if (activeStep === 0) {
+            nextStep();
+        }
+    })
+
     if (isEmpty) {
         return (
-            <Empty title="Your cart is empty" button={true} />
+            <Empty title="Your cart is empty" button={'yes'} />
         )
     }
 
     return (
         <Container fluid>
-            <Container w={smallScreen ? '100%' : '90%'} >
+            <Container maw={'1180px'} >
                 <Flex py="md" style={{ textWrap: 'wrap', textAlign: smallScreen ? 'center' : 'left' }}>
-                    <Text size='xs'>Home
-                        <ThemeIcon size='xs' variant='subtle' px={20}>&gt;</ThemeIcon> <span>Shop</span>
-                        <ThemeIcon size='xs' variant='subtle' px={20}>&gt;</ThemeIcon> <span style={{ fontWeight: 'bold' }}>
-                            Shopping Cart
-                        </span>
-                        <ThemeIcon size='xs' variant='subtle' px={20}>&gt;</ThemeIcon> <span style={{ fontWeight: 'bold' }}>Checkout</span>
-                    </Text>
-
+                    <Group size='xs'><Link to={'/products'}><Text size='xs' c={'dimmed'}>Shop</Text></Link>
+                        <ThemeIcon size='13px' variant='subtle'><IconChevronRight /></ThemeIcon> <Link to={'/cart'}><Text c={'dimmed'} size='xs'>Shopping Cart</Text></Link>
+                        <ThemeIcon size='13px' variant='subtle'><IconChevronRight /></ThemeIcon> <Text size='xs'>Checkout</Text>
+                    </Group>
                 </Flex>
 
                 <Center>
@@ -108,22 +112,30 @@ const Checkout = () => {
                 <SimpleGrid cols={{ base: 1, xs: 1, sm: 1, md: 2, lg: 2 }} spacing="lg" mt="xl" pb={'xl'}>
 
                     {
-                        activeStep === 0 && <Paper h={'auto'} shadow="0" p={smallScreen ? "xs" : "xl"} bg={smallScreen ? '#e6f2ff' : 'white'} >
-                            <Container bg={smallScreen ? '#e6f2ff' : 'white'}>
-                                <Title order={3} ta={smallScreen ? 'center' : 'left'} mt={'lg'}>Billing Details</Title>
-                            </Container>
+                        activeStep === 1 && <div>
 
-                            <BillingDetailsForm form={form} />
+                            <Paper h={'auto'} shadow="0" p={smallScreen ? "xs" : "xl"} bg={smallScreen ? '#e6f2ff' : 'white'} >
+                                <Container bg={smallScreen ? '#e6f2ff' : 'white'}>
+                                    <Title order={3} ta={smallScreen ? 'center' : 'left'} mt={'lg'}>Billing Details</Title>
+                                </Container>
 
-                            {form.values.differentShipping && (
-                                <BillingDetailsForm form={form} isShipping={true} />
+                                <BillingDetailsForm form={form} />
 
-                            )}
-                        </Paper>
+                                {form.values.differentShipping && (
+                                    <BillingDetailsForm form={form} isShipping={true} />
+
+                                )}
+
+                            </Paper>
+
+                            <Title order={5} mt={'xl'}>Shipping Notes</Title>
+                            <Textarea mt={'sm'} variant='outline' rows={5} placeholder="Message" {...form.getInputProps('shippingNotes')} style={{ border: '1px solid #1E1E1E', padding: '10px', borderRadius: '8px' }} />
+
+                        </div>
                     }
 
                     {
-                        activeStep === 1 && <Paper h={'auto'} shadow="0" p={smallScreen ? "xs" : "xl"} bg={smallScreen ? '#e6f2ff' : 'white'} >
+                        activeStep === 2 && <Paper h={'auto'} shadow="0" p={smallScreen ? "xs" : "xl"} bg={smallScreen ? '#e6f2ff' : 'white'} >
                             <Container bg={smallScreen ? '#e6f2ff' : 'white'}>
                                 <Title order={3} ta={smallScreen ? 'center' : 'left'} mt={'md'}>Payment Method</Title>
                                 <Text ta={smallScreen ? 'center' : 'left'} size='sm'>
@@ -138,7 +150,7 @@ const Checkout = () => {
                     }
 
                     {
-                        (activeStep === 0 || activeStep === 1) &&
+                        (activeStep === 1 || activeStep === 2) &&
                         (
                             <Paper shadow="0" p={smallScreen ? "xs" : "xl"} radius="md" h={'620px'} >
                                 <Container bg={'white'}>
@@ -176,10 +188,10 @@ const Checkout = () => {
 
                                 <Container bg={'white'}>
                                     {
-                                        (activeStep === 0) && <Button my={'sm'} loading={loading} size='lg' fullWidth onClick={handlePlaceOrder}>
+                                        (activeStep === 1) && <Button my={'sm'} loading={loading} size='lg' fullWidth onClick={handlePlaceOrder}>
                                             <Text size='sm'>Make Payment</Text>
                                         </Button>}
-                                    {(activeStep === 1) && <Button my={'sm'} loading={loading} size='lg' fullWidth onClick={handlePlaceOrder}>
+                                    {(activeStep === 2) && <Button my={'sm'} loading={loading} size='lg' fullWidth onClick={handlePlaceOrder}>
                                         <Text size='sm'>Place Order</Text>
                                     </Button>
                                     }
@@ -191,7 +203,7 @@ const Checkout = () => {
                 </SimpleGrid>
 
                 {
-                    (activeStep === 2) && <PaymentConfirmation />
+                    (activeStep === 3) && <PaymentConfirmation />
                 }
             </Container>
 

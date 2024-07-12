@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { products } from '../data/data';
 import { useCart } from 'react-use-cart';
-import { Container, Image, Text, Title, Button, SimpleGrid, Tabs, Grid, Flex, Paper, ThemeIcon, Divider } from '@mantine/core';
-import { IconHeart, IconShoppingBag, IconStarFilled } from '@tabler/icons-react';
+import { Container, Image, Text, Title, Button, SimpleGrid, Tabs, Grid, Flex, Paper, ThemeIcon, Divider, Group } from '@mantine/core';
+import { IconChevronRight, IconHeart, IconShoppingBag, IconStarFilled } from '@tabler/icons-react';
 import { notifications } from '@mantine/notifications';
 import ProductCard from '../components/ProductCard';
 import { useMediaQuery } from '@mantine/hooks';
-import Counter from '../components/Counter';
+import Quantity from '../components/Quantity';
 
 const SingleProduct = () => {
     let { id } = useParams();
@@ -71,18 +71,18 @@ const SingleProduct = () => {
 
     return (
         <Container fluid bg={'#e9f3ff'} pb={'55px'}>
-            <Container>
+            <Container maw={'1180px'}>
                 <Flex pt="md" style={{ textWrap: 'wrap' }}>
-                    <Text size='xs'>Shop
-                        <ThemeIcon size='xs' variant='subtle'>&gt;</ThemeIcon> <span>Category</span>
-                        <ThemeIcon size='xs' variant='subtle'>&gt;</ThemeIcon> <span>{category}</span>
-                        <ThemeIcon size='xs' variant='subtle'>&gt;</ThemeIcon> <span>{title}</span>
-                    </Text>
+                    <Group size='xs'><Link to='/products'><Text size='xs' c={'dimmed'}>Shop</Text></Link>
+                        <ThemeIcon size='13px' variant='subtle'><IconChevronRight /></ThemeIcon> <Text c={'dimmed'} size='xs'>Category</Text>
+                        <ThemeIcon size='13px' variant='subtle'><IconChevronRight /></ThemeIcon> <Text c={'dimmed'} size='xs'>{category}</Text>
+                        <ThemeIcon size='13px' variant='subtle'><IconChevronRight /></ThemeIcon> <Text fw={500} size='xs'>{title}</Text>
+                    </Group>
 
                 </Flex>
                 <SimpleGrid cols={{ base: 1, xs: 1, sm: 2, md: 2, lg: 2 }} spacing="md" mt="md">
                     <Paper radius={'lg'} p="0" bg={'#e9f3ff'} style={{ cursor: 'pointer' }}>
-                        <Container bg={'#d8eaff'} p="0" style={{ cursor: 'pointer', borderRadius: '20px' }} h={300} className='zoom-container'>
+                        <Container bg={'#d8eaff'} p="0" style={{ cursor: 'pointer', borderRadius: '20px' }} h={320} className='zoom-container'>
                             <Image src={selectedImage} alt={title} radius="md" className="zoom-image" style={{ objectFit: 'contain' }} />
                         </Container>
                         <Grid mt="md" w={'100%'}>
@@ -94,8 +94,9 @@ const SingleProduct = () => {
                                             src={img}
                                             alt={`Gallery ${index + 1}`}
                                             radius="md"
-                                            width={100}
+                                            width={90}
                                             height={100}
+                                            style={{ objectFit: 'contain' }}
 
                                         />
                                     </Container>
@@ -121,9 +122,11 @@ const SingleProduct = () => {
                                 <Title order={4}>Color:</Title>
                                 <Text size='sm'>{color}</Text>
                             </Flex>
-                            <Flex gap={'.5rem'} align={'center'}>
-                                <Counter count={count} setCount={setCount} />
+
+                            <Flex justify={'left'} gap={'.5rem'} align={'center'}>
+                                <Quantity count={count} setCount={setCount} />
                             </Flex>
+
                             <Flex gap={'.5rem'} align={'center'}>
                                 <Title order={4}>Rating:</Title>
                                 <Text size='sm'> <IconStarFilled size={16} color='#ffd700' />{rating}</Text>
@@ -178,15 +181,15 @@ const SingleProduct = () => {
                 </SimpleGrid>
             </Container>
             <Divider my="xl" />
-            <Container>
+            <Container maw={'1180px'}>
                 <Title order={2} lts={2} size={'35px'} style={{ color: '#0D1759' }} ta={'center'}>Related Products</Title>
                 <Grid mt="xl">
-                {relatedProducts.map((product) => (
-                    <Grid.Col span={smallScreen ? 12 : tabletScreen ? 6 : 4} key={product.id}>
-                        <ProductCard product={product} />
-                    </Grid.Col>
-                ))}
-            </Grid>
+                    {relatedProducts.map((product) => (
+                        <Grid.Col span={smallScreen ? 12 : tabletScreen ? 6 : 4} key={product.id}>
+                            <ProductCard product={product} />
+                        </Grid.Col>
+                    ))}
+                </Grid>
             </Container>
         </Container>
     );

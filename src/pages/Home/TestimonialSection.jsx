@@ -42,7 +42,7 @@ const TestimonialsSection = () => {
     const smallScreen = useMediaQuery('(max-width: 768px)');
 
     return (
-        <Container pt="xl" pb={'90px'} id='testimonials'>
+        <Container pt="xl" pb={'90px'} id='testimonials' maw={'1180px'}>
             {
                 smallScreen ? <Flex justify={'space-between'}>
                     <Title order={2} align="center" size={'34px'} c={'#0D1759'}>Testimonials</Title>

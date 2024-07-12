@@ -32,7 +32,7 @@ const BannerGrid = () => {
     };
 
     return (
-        <Container mt={"md"}>
+        <Container mt={"md"} maw={'1180px'}>
             <Grid gutter="md">
                 <Grid.Col span={smallScreen ? 12 : 5}>
                     <motion.div {...firstAnimationProps}>

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Card, Text, Image, Flex, Stack, Title, Container, Grid, UnstyledButton } from '@mantine/core';
 import PropTypes from 'prop-types';
-import CounterCart from './CounterCart';
 import { useMediaQuery } from '@mantine/hooks';
+import Quantity from './Quantity';
 
 const CartItem = ({ item, onRemove, onQuantityChange, remove }) => {
 
@@ -51,7 +51,7 @@ const CartItem = ({ item, onRemove, onQuantityChange, remove }) => {
                                 </Flex>
                                 <Flex justify={'space-between'} align={'center'} direction={smallScreen ? 'row' : 'row'}>
                                     <Flex align="center" mt="xs" justify={'center'}>
-                                        <CounterCart count={quantity} setCount={handleQuantityChange} />
+                                        <Quantity count={quantity} setCount={handleQuantityChange} />
                                     </Flex>
                                     <UnstyledButton onClick={() => onRemove(item.id)}>
                                         <Text size="xs" c={'red'}>Remove</Text>

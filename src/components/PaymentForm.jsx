@@ -35,7 +35,7 @@ const PaymentForm = ({ form }) => {
                         borderRadius: '5px',
                     }}>
                         <Flex align="center" gap={'5px'}>
-                            <IconBrandPaypal size={ smallScreen ? 15 : 18} />
+                            <IconBrandPaypal size={smallScreen ? 15 : 18} />
                             <Text size={smallScreen ? '10px' : 'xs'}>Pay with Paypal</Text>
                         </Flex>
                         <Radio
@@ -75,10 +75,10 @@ const PaymentForm = ({ form }) => {
             )}
 
             {paymentMethod === 'paypal' && (
-                <Container bg={ smallScreen ? '#e9f3ff' : '#fff'} p={5}>
+                <Container bg={smallScreen ? '#e9f3ff' : '#fff'} p={5}>
                     <TextInput label="Paypal Email" placeholder="john.doe@example.com" required />
-                    <Button fullWidth mt="md" color="dark">
-                        Confirm Paypal
+                    <Button fullWidth mt="md" size='md' >
+                        <Text size="sm">Confirm Paypal</Text>
                     </Button>
                 </Container>
             )}

@@ -7,7 +7,7 @@ const Footer = () => {
 
     return (
         <div style={{ backgroundColor: '#0D1759', color: '#fff', padding: '40px 0' }}>
-            <Container bg={'#0D1759'}>
+            <Container bg={'#0D1759'} maw={'1180px'}>
                 <Flex direction={smallScreen ? 'column' : 'row'} justify="space-between" align="center">
                     <Container bg={'#0D1759'} style={{ padding: '0 20px' }} w={smallScreen ? '100%' : '40%'}>
                         <Group align="center" mb="md">
@@ -43,7 +43,7 @@ const Footer = () => {
                 </Flex>
             </Container>
             <Divider my="sm" color={'#e1e1e1'} style={{ padding: '0 20px' }} />
-            <Container bg={'#0D1759'} w={'100%'}>
+            <Container bg={'#0D1759'} maw={'1180px'}>
                 <Flex pt={'lg'} mt={'lg'} direction={smallScreen ? 'column' : 'row'} justify="space-between" align={'center'}>
                     <Text size="xs" align="center" style={{ color: '#e9f3ffcc' }}>Copyrights©2024 Noma Couture Creations. All rights reserved</Text>
                     <Group position="center" mt="md">

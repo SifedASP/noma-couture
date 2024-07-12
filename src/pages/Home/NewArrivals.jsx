@@ -14,8 +14,8 @@ const smallScreen = useMediaQuery('(max-width: 810px)');
 const tabletScreen = useMediaQuery('(max-width: 1024px)');
 
     return (
-        <Container py="xl">
-            <Flex justify={'space-between'} align={'center'}>
+        <Container fluid py="xl" maw={'1180px'}>
+            <Flex justify={'space-between'} align={'center'} w={'100%'}>
                 <Title order={2} style={{ color: '#0D1759' }}>
                     New Arrivals
                 </Title>

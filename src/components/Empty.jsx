@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const Empty = ({ title = 'Oops, No Products In Cart', button }) => {
     return (
         <Container fluid>
-            <Center h={300}>
+            <Center h={400}>
                 <Stack>
                     <Center>
                         <Image w={100} src={'https://res.cloudinary.com/dg8os5pul/image/upload/v1720552732/unnamed_1_yblyjq.png'} alt="No Products Found" />

@@ -6,6 +6,7 @@ import { useRef } from 'react';
 const ArchiveBanner = () => {
     const smallScreen = useMediaQuery(`(max-width: 768px)`);
     const tabletScreen = useMediaQuery(`(max-width: 850px)`);
+    const laptopScreen = useMediaQuery(`(max-width: 1224px)`);
 
     const ref1 = useRef(null);
 
@@ -24,8 +25,8 @@ const ArchiveBanner = () => {
     };
 
     return (
-        <Container fluid h={smallScreen ? 'auto' : tabletScreen ? 300 : 333} style={{ backgroundColor: '#0D1759', color: '#fff' }} py={smallScreen ? '20px' : ''}>
-            <Container style={{ backgroundColor: '#0D1759', color: '#fff', display: 'flex', alignItems: 'center' }}>
+        <Container fluid h={'auto'} style={{ backgroundColor: '#0D1759', color: '#fff' }} py={smallScreen ? '20px' : '5px'}>
+            <Container style={{ backgroundColor: '#0D1759', color: '#fff', display: 'flex', alignItems: 'center' }} maw={'1180px'}>
                 <Grid style={{ width: '100%' }} gutter="xs">
                     <Grid.Col span={smallScreen ? 12 : 7} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: smallScreen ? '20px' : '40px' }}>
                         <motion.div ref={ref1}
@@ -47,8 +48,8 @@ const ArchiveBanner = () => {
                         <motion.div ref={ref1}
                             {...firstAnimationProps}
                             animate={isInView1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}>
-                            <Button radius="md" style={{ backgroundColor: '#fff', color: '#0D1759', alignSelf: 'start' }}>
-                                Get Offer
+                            <Button radius="md" style={{ backgroundColor: '#fff', color: '#0D1759', alignSelf: 'start' }} w={'50%'}>
+                                <Text size='sm'>Get Offer</Text>
                             </Button>
                         </motion.div>
                     </Grid.Col>

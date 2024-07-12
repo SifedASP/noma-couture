@@ -146,7 +146,7 @@ export const products = [
     },
     {
         id: 112,
-        title: 'African short dress Ankara gown',
+        title: 'African short dress - Ankara',
         description: 'The Ashanti Ruffle Set in green is perfect for making a statement. The set includes a ruffled top and matching pants, both featuring intricate designs and a comfortable fit.',
         price: 250,
         rating: 4.8,

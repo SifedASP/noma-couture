@@ -19,7 +19,7 @@ const Home = () => {
             <Center pt={'60px'} pb={'10px'}>
                 <Title size={smallScreen ? '30px' : tabletScreen ? '40px' : '50px'} c={'#0D1759'} lts={2} ta={'center'}>Noma Couture Creations</Title>
             </Center>
-            <Center maw={'830px'} mx="auto" pb={'30px'} px={smallScreen ? '20px' : '0'}>
+            <Center maw={'840px'} mx="auto" pb={'30px'} px={smallScreen ? '20px' : '0'}>
                 <Text ta={'center'} fw={300} size='14px' lh={1.5}>
                     Welcome to Noma Couture Creations, where African heritage meets modern couture. Our fashion house celebrates the rich tapestry of African cultures through exquisite designs that blend traditional craftsmanship with contemporary flair.
                 </Text>

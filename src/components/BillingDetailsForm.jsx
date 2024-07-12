@@ -11,33 +11,34 @@ const BillingDetailsForm = ({ form, isShipping }) => {
                 <Paper bg={smallScreen ? '#e9f3ff' : '#fff'}>
                     <Grid mb={20}>
                         <Grid.Col span={6}>
-                            <TextInput label="First Name" placeholder="e.g. Jane" {...form.getInputProps('firstName')} />
+                            <TextInput label="First Name" size='md' placeholder="e.g. Jane" {...form.getInputProps('firstName')} />
                         </Grid.Col>
                         <Grid.Col span={6}>
-                            <TextInput label="Last Name" placeholder="e.g. Doe" {...form.getInputProps('lastName')} />
+                            <TextInput label="Last Name" size='md' placeholder="e.g. Doe" {...form.getInputProps('lastName')} />
                         </Grid.Col>
                     </Grid>
-                    <TextInput type="email" mb={20} label="Email" placeholder="e.g. janedoe@gmail.com" {...form.getInputProps('email')} />
+                    <TextInput type="email" mb={20} size='md' label="Email" placeholder="e.g. janedoe@gmail.com" {...form.getInputProps('email')} />
                     <Grid mb={20}>
                         <Grid.Col span={6}>
                             <Select
                                 label="Country"
                                 placeholder="Country"
                                 data={['Country 1', 'Country 2']}
+                                size='md'
                                 {...form.getInputProps('country')}
                             />
                         </Grid.Col>
                         <Grid.Col span={6}>
-                            <TextInput label="Phone number" placeholder="e.g. 1234567890" {...form.getInputProps('phoneNumber')} />
+                            <TextInput label="Phone number" size='md' placeholder="e.g. 1234567890" {...form.getInputProps('phoneNumber')} />
                         </Grid.Col>
                     </Grid>
-                    <TextInput mb={20} label="Address" placeholder="e.g. 123 Main St" {...form.getInputProps('address')} />
+                    <TextInput mb={20} label="Address" size='md' placeholder="e.g. 123 Main St" {...form.getInputProps('address')} />
                     <Grid mb={20}>
                         <Grid.Col span={6}>
-                            <TextInput label="Town/city" placeholder="City" {...form.getInputProps('city')} />
+                            <TextInput label="Town/city" size='md' placeholder="City" {...form.getInputProps('city')} />
                         </Grid.Col>
                         <Grid.Col span={6}>
-                            <TextInput label="Postcode" placeholder="e.g. 12345" {...form.getInputProps('postcode')} />
+                            <TextInput label="Postcode" size='md' placeholder="e.g. 12345" {...form.getInputProps('postcode')} />
                         </Grid.Col>
                     </Grid>
                 </Paper>

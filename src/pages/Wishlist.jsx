@@ -29,12 +29,12 @@ const Wishlist = () => {
     const uniqueItems = removeDuplicates(items);
 
     if (isWishlistEmpty || uniqueItems.length === 0) return (
-        <Empty title="Nothing here yet..." button={true} />
+        <Empty title="Nothing here yet..." button={'yes'} />
     );
 
     return (
-        <Container fluid p>
-            <Container py={'xl'}>
+        <Container fluid >
+            <Container py={'xl'} maw={'1180px'}>
                 <Title mb={'xl'}>Wishlist ({uniqueItems.length})</Title>
 
                 <Grid>

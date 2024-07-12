@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
-        }, 3000);
+        },2000);
     }, []);
 
     const handleAddToCart = (item) => {
@@ -71,14 +71,14 @@ const ProductCard = ({ product }) => {
     }
 
     return (
-        <Card shadow="0" p="lg" radius="md" bg={'#e9f3ff'} style={{ borderRadius: '25px' }}>
-            <Card.Section bg={'#D7EAFF'} pt={'lg'}>
+        <Card shadow="0" p="lg" bg={'#e9f3ff'} radius={'xl'}>
+            <Card.Section bg={'#D7EAFF'} pt={'xs'} style={{ borderRadius: '25px' }}>
                 <ActionIcon
                     variant="transparent"
-                    style={{ position: 'absolute', top: 10, right: 10, zIndex: 1 }}
+                    style={{ position: 'absolute', top: 20, right: 20, zIndex: 1 }}
                     onClick={() => handleWishlist(product)}
                 >
-                    <IconHeart size={18} fill={inWishlist(product.id) ? '#0D1759' : 'none'} />
+                    <IconHeart size={17} fill={inWishlist(product.id) ? '#0D1759' : 'none'} />
                 </ActionIcon>
                 <a href={`/product/${product.id}`}>
                     <Container className="zoom-container">
@@ -87,8 +87,8 @@ const ProductCard = ({ product }) => {
                 </a>
             </Card.Section>
 
-            <Flex mt="md" mb="xs" justify="space-between">
-                <Text fw={700} size='sm' w={150}>{product.title}</Text>
+            <Flex mt="md" mb="xs" justify="space-between" align={'center'}>
+                <Text fw={700} size='13px' w={150}>{product.title}</Text>
                 <Text size="sm" fw={600} style={{ color: '#0D1759' }}>
                     ${product.price}
                 </Text>

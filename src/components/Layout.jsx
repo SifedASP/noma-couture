@@ -17,14 +17,16 @@ const Layout = ({ children }) => {
     }, [location.pathname]);
 
     return (
-        <>
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <CustomHeader />
             {
                 loading && <Loader />
             }
-            {children}
+            <main style={{ flex: 1 }}>
+                {children}
+            </main>
             <Footer />
-        </>
+        </div>
     );
 };
 
