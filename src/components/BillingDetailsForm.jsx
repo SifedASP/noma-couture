@@ -6,7 +6,7 @@ const BillingDetailsForm = ({ form, isShipping }) => {
     const smallScreen = useMediaQuery('(max-width: 768px)');
 
     return (
-        <Container bg={smallScreen ? '#e9f3ff' : '#fff'} p={20}>
+        <Container bg={smallScreen ? '#e9f3ff' : '#fff'} p={smallScreen ? 0 : 20}>
             <form>
                 <Paper bg={smallScreen ? '#e9f3ff' : '#fff'}>
                     <Grid mb={20}>
